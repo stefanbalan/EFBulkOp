@@ -77,7 +77,7 @@ namespace EFTest.OneManyOne
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public int SessionId { get; set; }
+        public int? SessionId { get; set; }
 
         public ICollection<ParentChildRel> ParentRels { get; set; }
 
