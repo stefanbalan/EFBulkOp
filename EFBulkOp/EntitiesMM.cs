@@ -6,7 +6,7 @@ namespace EFTest.ManyToMany
 {
     public class TestMMContext : DbContext
     {
-        public TestMMContext() : base("EfTests")
+        public TestMMContext() : base("EFBulkOp")
         {
 #if DEBUG
             Database.Log = s => Debug.WriteLine(s);
