@@ -33,6 +33,7 @@ namespace EFBulkOp
             }
             var timertext = timer.Stop();
             Debug.WriteLine(timertext);
+            FileLogger.Info(timertext);
         }
 
         protected int Create()

@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileLogger.cs" />
     <Compile Include="EntitiesOMO.cs" />
     <Compile Include="EntitiesMM.cs" />
     <Compile Include="ExecTimer.cs" />

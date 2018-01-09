@@ -24,7 +24,21 @@ namespace EFTest.OneManyOne
     {
         public DbSet<ParentChildRel2> ParentChildRel2Set { get; set; }
 
-        public Test2Context() : base("EfTests")
+        public Test2Context() : base("EFBulkOp")
+        {
+
+        }
+    }
+
+    public class TestContext : DbContext
+    {
+        public DbSet<Parent> ParentSet { get; set; }
+        public DbSet<Child> ChildSet { get; set; }
+
+        public DbSet<ParentChildRel> ParentChildRels { get; set; }
+        public DbSet<ContextSession> SessionSet { get; set; }
+
+        public TestContext() : base("EFBulkOp")
         {
 
         }
@@ -80,20 +94,7 @@ namespace EFTest.OneManyOne
         public ICollection<Child> Children { get; set; }
     }
 
-    public class TestContext : DbContext
-    {
-        public DbSet<Parent> ParentSet { get; set; }
-        public DbSet<Child> ChildSet { get; set; }
-
-        public DbSet<ParentChildRel> ParentChildRels { get; set; }
-        public DbSet<ContextSession> SessionSet { get; set; }
-
-        public TestContext() : base("EfTests")
-        {
-
-        }
-    }
-
+ 
     [Table("ParentChildRels")]
     public class ParentChildRel2
     {
@@ -104,7 +105,4 @@ namespace EFTest.OneManyOne
         [Column(Order = 2)]
         public int ChildId { get; set; }
     }
-
-
-  
 }
