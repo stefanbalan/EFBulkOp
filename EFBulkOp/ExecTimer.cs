@@ -15,16 +15,24 @@ namespace EFBulkOp
             return bm;
         }
 
-        private readonly string _title;
+        private string _title;
         private readonly Stopwatch _sw = new Stopwatch();
         private string _result;
         private long _lastCheckpoint;
 
-        public ExecutionTimer(string title)
+        public ExecutionTimer(string title = "")
+        {
+            if (string.IsNullOrEmpty(title)) return;
+            _title = title;
+            _result = string.IsNullOrEmpty(title) ? "" : $"[{title}]";
+        }
+
+        public void SetTitle(string title = "")
         {
             _title = title;
             _result = string.IsNullOrEmpty(title) ? "" : $"[{title}]";
         }
+
         public void Start()
         {
             _sw.Start();

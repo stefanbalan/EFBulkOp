@@ -13,7 +13,7 @@ namespace EFBulkOp
 
     public abstract class Test : ITest
     {
-        protected readonly ExecutionTimer timer = new ExecutionTimer("test");
+        protected ExecutionTimer timer = new ExecutionTimer("test");
 
         public virtual void Run(int count = 10_000)
         {

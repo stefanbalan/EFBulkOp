@@ -22,7 +22,7 @@ namespace EFTest.OneManyOne
 
     public class Test2Context : DbContext
     {
-        public DbSet<ParentChildRel2> ParentChildRel2Set { get; set; }
+        public DbSet<ParentChildSimpleRel> ParentChildRel2Set { get; set; }
 
         public Test2Context() : base("EFBulkOp")
         {
@@ -95,8 +95,8 @@ namespace EFTest.OneManyOne
     }
 
  
-    [Table("ParentChildRels")]
-    public class ParentChildRel2
+    [Table("ParentChildRel")]
+    public class ParentChildSimpleRel
     {
         [Key]
         [Column(Order = 1)]

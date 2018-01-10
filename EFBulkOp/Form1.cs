@@ -17,10 +17,9 @@ namespace EFBulkOp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new Test1().Run();
-            new Test1().Run();
-            new Test2().Run();
-            new Test3().Run();
+            new Test1().Run(1000);
+            new Test2().Run(1000);
+            new Test3().Run(1000);
             new Test4().Run();
         }
     }

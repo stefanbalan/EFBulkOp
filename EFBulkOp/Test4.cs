@@ -6,6 +6,10 @@ namespace EFBulkOp
 {
     public class Test4 : Test
     {
+        public Test4()
+        {
+            timer.SetTitle("Test 4");
+        }
 
         protected override void Add(TestContext ctx, Parent parent, int count)
         {
@@ -35,7 +39,7 @@ namespace EFBulkOp
             {
                 foreach (var child in session.Children)
                 {
-                    ctx2.ParentChildRel2Set.Add(new ParentChildRel2
+                    ctx2.ParentChildRel2Set.Add(new ParentChildSimpleRel
                     {
                         ParentId = parent.Id,
                         ChildId = child.Id

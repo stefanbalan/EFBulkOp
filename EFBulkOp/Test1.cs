@@ -5,8 +5,10 @@ namespace EFBulkOp
 {
     public class Test1 : Test
     {
-        private readonly ExecutionTimer timer = new ExecutionTimer("test");
-
+        public Test1()
+        {
+            timer.SetTitle("Test 1");
+        }
 
         protected override void Add(TestContext ctx, Parent parent, int count)
         {
