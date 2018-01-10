@@ -22,5 +22,10 @@ namespace EFBulkOp
             new Test3().Run(1000);
             new Test4().Run();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new Test5().Run(100_000);
+        }
     }
 }

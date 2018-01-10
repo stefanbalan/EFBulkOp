@@ -68,6 +68,7 @@
     <Compile Include="Test1.cs" />
     <Compile Include="Test2.cs" />
     <Compile Include="Test3.cs" />
+    <Compile Include="Test5.cs" />
     <Compile Include="Test4.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -94,6 +95,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="results.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
