@@ -13,12 +13,12 @@ namespace EFBulkOp
 
         protected override void Add(TestContext ctx, Parent parent, int count)
         {
-            var session = new ContextSession
+            var batch = new ChildBatch
             {
                 DateTime = DateTime.Now,
                 Children = new List<Child>()
             };
-            ctx.SessionSet.Add(session);
+            ctx.SessionSet.Add(batch);
             ctx.SaveChanges();
 
             for (var i = 0; i < count; i++)
@@ -26,9 +26,9 @@ namespace EFBulkOp
                 var child = new Child
                 {
                     Name = Guid.NewGuid().ToString("N"),
-                    SessionId = session.Id
+                    BatchId = batch.Id
                 };
-                session.Children.Add(child);
+                batch.Children.Add(child);
             }
             timer.CheckPoint($"Added {count}");
 
@@ -37,7 +37,7 @@ namespace EFBulkOp
 
             using (var ctx2 = new Test2Context())
             {
-                foreach (var child in session.Children)
+                foreach (var child in batch.Children)
                 {
                     ctx2.ParentChildRel2Set.Add(new ParentChildSimpleRel
                     {

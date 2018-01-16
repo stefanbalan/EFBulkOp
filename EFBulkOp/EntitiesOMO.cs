@@ -7,42 +7,18 @@ using System.Diagnostics;
 
 namespace EFTest.OneManyOne
 {
-    public class TestOMOContext : DbContext
-    {
-        public TestOMOContext() : base("EFBulkOp")
-        {
-#if DEBUG
-            Database.Log = s => Debug.WriteLine(s);
-#endif
-        }
-
-        public DbSet<Parent> ParentSet { get; set; }
-        public DbSet<Child> ChildSet { get; set; }
-    }
-
-    public class Test2Context : DbContext
-    {
-        public DbSet<ParentChildSimpleRel> ParentChildRel2Set { get; set; }
-
-        public Test2Context() : base("EFBulkOp")
-        {
-
-        }
-    }
-
     public class TestContext : DbContext
     {
         public DbSet<Parent> ParentSet { get; set; }
         public DbSet<Child> ChildSet { get; set; }
 
         public DbSet<ParentChildRel> ParentChildRels { get; set; }
-        public DbSet<ContextSession> SessionSet { get; set; }
+        public DbSet<ChildBatch> SessionSet { get; set; }
 
-        public TestContext() : base("EFBulkOp")
-        {
-
-        }
+        public TestContext() : base("EFBulkOp") { }
     }
+
+
 
     [Table("Parents")]
     public class Parent
@@ -69,6 +45,8 @@ namespace EFTest.OneManyOne
 
         [ForeignKey("ChildId")]
         public virtual Child Child { get; set; }
+
+        public int? BatchId { get; set; }
     }
 
     [Table("Children")]
@@ -76,17 +54,16 @@ namespace EFTest.OneManyOne
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
-        public int? SessionId { get; set; }
-
+        
         public ICollection<ParentChildRel> ParentRels { get; set; }
 
-        [ForeignKey("SessionId")]
-        public virtual ContextSession AddedInSession { get; set; }
+        public int? BatchId { get; set; }
+        [ForeignKey("BatchId")]
+        public virtual ChildBatch AddedInBatch { get; set; }
     }
 
-
-    public class ContextSession
+    [Table("Batch")]
+    public class ChildBatch
     {
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
@@ -94,7 +71,24 @@ namespace EFTest.OneManyOne
         public ICollection<Child> Children { get; set; }
     }
 
- 
+
+    public class Test2Context : DbContext
+    {
+        public DbSet<ParentChildSimpleRel> ParentChildRel2Set { get; set; }
+        //public DbSet<ParentChildBatch> ParentChildBatchSet { get; set; }
+
+        public Test2Context() : base("EFBulkOp") { }
+    }
+    //[Table("Batch")]
+    //public class ParentChildBatch
+    //{
+    //    public int Id { get; set; }
+    //    public DateTime DateTime { get; set; }
+
+    //    public ICollection<ParentChildSimpleRel> ParentChildSimpleRels { get; set; }
+    //}
+
+
     [Table("ParentChildRel")]
     public class ParentChildSimpleRel
     {
@@ -104,5 +98,9 @@ namespace EFTest.OneManyOne
         [Key]
         [Column(Order = 2)]
         public int ChildId { get; set; }
+
+        public int? BatchId { get; set; }
+        //[ForeignKey("BatchId")]
+        //public virtual ChildBatch AddedInBatch { get; set; }
     }
 }

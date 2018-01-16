@@ -68,6 +68,7 @@
     <Compile Include="Test1.cs" />
     <Compile Include="Test2.cs" />
     <Compile Include="Test3.cs" />
+    <Compile Include="Test6.cs" />
     <Compile Include="Test5.cs" />
     <Compile Include="Test4.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -82,6 +83,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="bin\Debug\results.log" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
