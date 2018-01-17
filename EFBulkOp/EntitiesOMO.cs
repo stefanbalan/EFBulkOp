@@ -15,6 +15,9 @@ namespace EFTest.OneManyOne
         public DbSet<ParentChildRel> ParentChildRels { get; set; }
         public DbSet<ChildBatch> SessionSet { get; set; }
 
+
+        public DbSet<ParentChildBatchTemplate> ParentChildBatcheTemplateSet { get; set; }
+
         public TestContext() : base("EFBulkOp") { }
     }
 
@@ -46,7 +49,7 @@ namespace EFTest.OneManyOne
         [ForeignKey("ChildId")]
         public virtual Child Child { get; set; }
 
-        public int? BatchId { get; set; }
+        public int? ParentChildBatchId { get; set; }
     }
 
     [Table("Children")]
@@ -62,31 +65,39 @@ namespace EFTest.OneManyOne
         public virtual ChildBatch AddedInBatch { get; set; }
     }
 
-    [Table("Batch")]
+    //[Table("Batch")]
     public class ChildBatch
     {
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
 
         public ICollection<Child> Children { get; set; }
+    }    
+    
+    [Table("ParentChildBatches")]
+    public class ParentChildBatchTemplate
+    {
+        public int Id { get; set; }
+        public DateTime DateTime { get; set; }
     }
 
 
     public class Test2Context : DbContext
     {
         public DbSet<ParentChildSimpleRel> ParentChildRel2Set { get; set; }
-        //public DbSet<ParentChildBatch> ParentChildBatchSet { get; set; }
+        public DbSet<ParentChildBatch> ParentChildBatchSet { get; set; }
 
         public Test2Context() : base("EFBulkOp") { }
     }
-    //[Table("Batch")]
-    //public class ParentChildBatch
-    //{
-    //    public int Id { get; set; }
-    //    public DateTime DateTime { get; set; }
 
-    //    public ICollection<ParentChildSimpleRel> ParentChildSimpleRels { get; set; }
-    //}
+    [Table("ParentChildBatches")]
+    public class ParentChildBatch
+    {
+        public int Id { get; set; }
+        public DateTime DateTime { get; set; }
+
+        public ICollection<ParentChildSimpleRel> ParentChildSimpleRels { get; set; }
+    }
 
 
     [Table("ParentChildRel")]
@@ -99,8 +110,8 @@ namespace EFTest.OneManyOne
         [Column(Order = 2)]
         public int ChildId { get; set; }
 
-        public int? BatchId { get; set; }
-        //[ForeignKey("BatchId")]
-        //public virtual ChildBatch AddedInBatch { get; set; }
+        public int? ParentChildBatchId { get; set; }
+        [ForeignKey("ParentChildBatchId")]
+        public virtual ParentChildBatch AddedInBatch { get; set; }
     }
 }

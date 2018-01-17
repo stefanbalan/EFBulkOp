@@ -30,7 +30,7 @@ namespace EFBulkOp
 
         private void button3_Click(object sender, EventArgs e)
         {
-            new Test6().Run(10_000);
+            new Test6().Run(100_000);
         }
     }
 }

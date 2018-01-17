@@ -11,7 +11,7 @@ namespace EFBulkOp
         {
             try
             {
-                logFile = new FileInfo("results.log");
+                logFile = new FileInfo("results.txt");
                 using (var fs = logFile.AppendText())
                 {
                     fs.Write($"[{DateTime.UtcNow:yyyy-MM-dd HH:mm}] [INFO] ");

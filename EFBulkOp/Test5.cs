@@ -24,7 +24,7 @@ namespace EFBulkOp
             {
                 var parent = LoadParent(ctx, parentId);
 
-                Add(ctx, parent, 100_000);
+                Add(ctx, parent, count);
             }
             var timertext = timer.Stop();
             Debug.WriteLine(timertext);
