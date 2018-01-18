@@ -113,3 +113,10 @@ Loaded: 358ms  (0 children); Added 10000: 399173ms  ; Saved: 4404ms  ; Added rel
 Loaded: 192ms  (0 children); Added 10000: 38ms  ; Saved: 6233ms  ; Added rel 10000: 275296ms  ; Saved rel: 3543ms  ; TOTAL: 00:04:45.3036792
 [2018-01-18 11:09] [INFO] [Test 5]
 Loaded: 312ms  (0 children); Added 10000: 8ms  ; Saved: 6370ms  ; Added rel 10000: 2ms  ; Saved rel: 6019ms  ; TOTAL: 00:00:12.7126257
+
+[2018-01-18 11:25] [INFO] Log started _______________
+
+[2018-01-18 11:25] [INFO] [Test 1]
+Loaded: 462ms  (0 children); Added 100000: 276ms  ; Saved: 253478ms  ; TOTAL: 00:04:14.2173245
+[2018-01-18 11:30] [INFO] [Test 5]
+Loaded: 272ms  (0 children); Added 100000: 109ms  ; Saved: 166324ms  ; Added rel 100000: 256ms  ; Saved rel: 145479ms  ; TOTAL: 00:05:12.4417017
