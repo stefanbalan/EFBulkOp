@@ -3,11 +3,14 @@ using EFTest.OneManyOne;
 
 namespace EFBulkOp
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Test1 : Test
     {
         public Test1()
         {
-            timer.SetTitle("Test 1");
+            Timer.SetTitle("Test 1");
         }
 
         protected override void Add(TestContext ctx, Parent parent, int count)
@@ -23,10 +26,10 @@ namespace EFBulkOp
                     }
                 });
             }
-            timer.CheckPoint($"Added {count}");
+            Timer.CheckPoint($"Added {count}");
 
             ctx.SaveChanges();
-            timer.CheckPoint("Saved");
+            Timer.CheckPoint("Saved");
         }
     }
 }

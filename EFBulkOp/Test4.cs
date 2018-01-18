@@ -8,7 +8,7 @@ namespace EFBulkOp
     {
         public Test4()
         {
-            timer.SetTitle("Test 4");
+            Timer.SetTitle("Test 4");
         }
 
         protected override void Add(TestContext ctx, Parent parent, int count)
@@ -30,10 +30,10 @@ namespace EFBulkOp
                 };
                 batch.Children.Add(child);
             }
-            timer.CheckPoint($"Added {count}");
+            Timer.CheckPoint($"Added {count}");
 
             ctx.SaveChanges();
-            timer.CheckPoint("Saved" );
+            Timer.CheckPoint("Saved" );
 
             using (var ctx2 = new Test2Context())
             {
@@ -45,10 +45,10 @@ namespace EFBulkOp
                         ChildId = child.Id
                     });
                 }
-                timer.CheckPoint($"Added rel {count}");
+                Timer.CheckPoint($"Added rel {count}");
 
                 ctx2.SaveChanges();
-                timer.CheckPoint("Saved rel");
+                Timer.CheckPoint("Saved rel");
             }
         }
     }

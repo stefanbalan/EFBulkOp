@@ -7,7 +7,7 @@ namespace EFBulkOp
     {
         public Test2()
         {
-            timer.SetTitle("Test 2");
+            Timer.SetTitle("Test 2");
         }
 
         protected override void Add(TestContext ctx, Parent parent, int count)
@@ -24,10 +24,10 @@ namespace EFBulkOp
                     }
                 });
             }
-            timer.CheckPoint($"Added {count}");
+            Timer.CheckPoint($"Added {count}");
 
             ctx.SaveChanges();
-            timer.CheckPoint("Saved");
+            Timer.CheckPoint("Saved");
         }
     }
 }

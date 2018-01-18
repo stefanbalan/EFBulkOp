@@ -30,7 +30,7 @@
         {
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_RunAll = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
@@ -51,15 +51,15 @@
             this.statusText.Name = "statusText";
             this.statusText.Size = new System.Drawing.Size(0, 17);
             // 
-            // button1
+            // btn_RunAll
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_RunAll.Location = new System.Drawing.Point(12, 12);
+            this.btn_RunAll.Name = "btn_RunAll";
+            this.btn_RunAll.Size = new System.Drawing.Size(75, 23);
+            this.btn_RunAll.TabIndex = 2;
+            this.btn_RunAll.Text = "Run all tests";
+            this.btn_RunAll.UseVisualStyleBackColor = true;
+            this.btn_RunAll.Click += new System.EventHandler(this.btnRunAll_Click);
             // 
             // button2
             // 
@@ -88,7 +88,7 @@
             this.ClientSize = new System.Drawing.Size(206, 142);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_RunAll);
             this.Controls.Add(this.statusStrip1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -102,7 +102,7 @@
         #endregion
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusText;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_RunAll;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
     }

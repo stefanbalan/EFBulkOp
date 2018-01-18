@@ -51,25 +51,65 @@ Loaded: 204826ms  (100000 children); TOTAL: 00:27:49.4793938
 
 [2018-01-14 10:11] [INFO] Log started _______________
 
-[2018-01-14 10:11] [INFO] [Test 5]
+[2018-01-14 10:11] [INFO] [Test 4]
 Loaded: 138ms  (0 children); Added 100000: 124ms  ; Saved: 208314ms  ; Added rel 100000: 3444917ms  ; Saved rel: 26600ms  ; TOTAL: 01:01:20.0953108
 [2018-01-17 18:40] [INFO] Log started _______________
 
-[2018-01-17 18:40] [INFO] [Test 6]
+[2018-01-17 18:40] [INFO] [Test 5]
 Loaded: 151ms  (0 children); Added 10000: 2387ms  ; Saved: 5332ms  ; Added rel 10000: 112ms  ; Saved rel: 5122ms  ; TOTAL: 00:00:13.1053041
 [2018-01-17 18:46] [INFO] Log started _______________
 
-[2018-01-17 18:46] [INFO] [Test 6]
+[2018-01-17 18:46] [INFO] [Test 5]
 Loaded: 86ms  (0 children); Added 100000: 125ms  ; Saved: 223733ms  ; Added rel 100000: 102ms  ; Saved rel: 166230ms  ; TOTAL: 00:06:30.2775945
 [2018-01-17 19:19] [INFO] Log started _______________
 
-[2018-01-17 19:19] [INFO] [Test 6]
+[2018-01-17 19:19] [INFO] [Test 5]
 Loaded: 290ms  (0 children); Added 200000: 251ms  ; Saved: 787152ms  ; Added rel 200000: 182ms  ; Saved rel: 753202ms  ; TOTAL: 00:25:41.0785452
 [2018-01-17 19:42] [INFO] Log started _______________
 
-[2018-01-17 19:42] [INFO] [Test 6]
+[2018-01-17 19:42] [INFO] [Test 5]
 Loaded: 1054ms  (0 children); Added 100000: 129ms  ; Saved: 191008ms  ; Added rel 100000: 83ms  ; Saved rel: 156049ms  ; TOTAL: 00:05:48.3250324
-[2018-01-17 20:04] [INFO] [Test 6]
+[2018-01-17 20:04] [INFO] [Test 5]
 Loaded: 973ms  (0 children); Added 100000: 140ms  ; Saved: 200153ms  ; Added rel 100000: 32ms  ; Saved rel: 155752ms  ; TOTAL: 00:05:57.0510037
-[2018-01-17 21:13] [INFO] [Test 6]
+[2018-01-17 21:13] [INFO] [Test 5]
 Loaded: 1158ms  (0 children); Added 100000: 126ms  ; Saved: 244108ms  ; Added rel 100000: 31ms  ; Saved rel: 179964ms  ; TOTAL: 00:07:05.3880549
+[2018-01-18 09:39] [INFO] Log started _______________
+
+[2018-01-18 09:39] [INFO] [Test 1]
+Loaded: 275ms  (0 children); Added 1000: 4ms  ; Saved: 998ms  ; 
+Loaded: 174ms  (1000 children); TOTAL: 00:00:01.4531323
+[2018-01-18 09:39] [INFO] [Test 2]
+Loaded: 1ms  (0 children); Added 1000: 11256ms  ; Saved: 785ms  ; 
+Loaded: 158ms  (1000 children); TOTAL: 00:00:12.2015326
+[2018-01-18 09:40] [INFO] [Test 3]
+Loaded: 2ms  (0 children); Added 1000: 4406ms  ; Saved: 382ms  ; Added rel 1000: 3728ms  ; Saved rel: 330ms  ; 
+Loaded: 178ms  (1000 children); TOTAL: 00:00:09.0271790
+[2018-01-18 09:40] [INFO] [Test 4]
+Loaded: 2ms  (0 children); Added 1000: 18ms  ; Saved: 504ms  ; Added rel 1000: 3178ms  ; Saved rel: 317ms  ; 
+Loaded: 156ms  (1000 children); TOTAL: 00:00:04.1764972
+[2018-01-18 09:40] [INFO] [Test 5]
+Loaded: 1ms  (0 children); Added 1000: 5ms  ; Saved: 505ms  ; Added rel 1000: 3ms  ; Saved rel: 445ms  ; 
+Loaded: 164ms  (1000 children); TOTAL: 00:00:01.1239173
+[2018-01-18 09:49] [INFO] Log started _______________
+
+[2018-01-18 09:49] [INFO] [Test 1]
+Loaded: 97ms  (0 children); Added 10000: 22ms  ; Saved: 11591ms  ; TOTAL: 00:00:11.7120998
+[2018-01-18 10:07] [INFO] [Test 2]
+Loaded: 73ms  (0 children); Added 10000: 1066762ms  ; Saved: 12254ms  ; TOTAL: 00:17:59.0905001
+[2018-01-18 10:19] [INFO] [Test 3]
+Loaded: 606ms  (0 children); Added 10000: 404265ms  ; Saved: 4311ms  ; Added rel 10000: 279773ms  ; Saved rel: 3767ms  ; TOTAL: 00:11:32.7236937
+[2018-01-18 10:24] [INFO] [Test 4]
+Loaded: 110ms  (0 children); Added 10000: 32ms  ; Saved: 6271ms  ; Added rel 10000: 281004ms  ; Saved rel: 3562ms  ; TOTAL: 00:04:50.9806702
+[2018-01-18 10:24] [INFO] [Test 5]
+Loaded: 102ms  (0 children); Added 10000: 11ms  ; Saved: 6194ms  ; Added rel 10000: 3ms  ; Saved rel: 5533ms  ; TOTAL: 00:00:11.8444081
+
+[2018-01-18 10:35] [INFO] [Test 1]
+Loaded: 142ms  (0 children); Added 10000: 51ms  ; Saved: 11346ms  ; TOTAL: 00:00:11.5400411
+[2018-01-18 10:53] [INFO] [Test 2]
+Loaded: 82ms  (0 children); Added 10000: 1069278ms  ; Saved: 12725ms  ; TOTAL: 00:18:02.0858825
+[2018-01-18 11:05] [INFO] [Test 3]
+Loaded: 358ms  (0 children); Added 10000: 399173ms  ; Saved: 4404ms  ; Added rel 10000: 271932ms  ; Saved rel: 3472ms  ; TOTAL: 00:11:19.3397575
+[2018-01-18 11:09] [INFO] [Test 4]
+Loaded: 192ms  (0 children); Added 10000: 38ms  ; Saved: 6233ms  ; Added rel 10000: 275296ms  ; Saved rel: 3543ms  ; TOTAL: 00:04:45.3036792
+[2018-01-18 11:09] [INFO] [Test 5]
+Loaded: 312ms  (0 children); Added 10000: 8ms  ; Saved: 6370ms  ; Added rel 10000: 2ms  ; Saved rel: 6019ms  ; TOTAL: 00:00:12.7126257

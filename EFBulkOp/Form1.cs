@@ -15,12 +15,13 @@ namespace EFBulkOp
             statusText.Text = s;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRunAll_Click(object sender, EventArgs e)
         {
-            new Test1().Run(1000);
-            new Test2().Run(1000);
-            new Test3().Run(1000);
-            new Test4().Run();
+            new Test1().Run(10_000);
+            new Test2().Run(10_000);
+            new Test3().Run(10_000);
+            new Test4().Run(10_000);
+            new Test5().Run(10_000);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace EFBulkOp
 
         private void button3_Click(object sender, EventArgs e)
         {
-            new Test6().Run(100_000);
+            new Test5().Run(100_000);
         }
     }
 }

@@ -1,35 +1,66 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
 using EFTest.OneManyOne;
 
 namespace EFBulkOp
 {
-    public class Test5 : Test4
+    public class Test5 : Test
     {
         /// <summary>
-        /// Adds all <paramref name="count"/> children in 1 "session"
-        /// No loading of results
+        /// uses "batch" child collection insertion both for Child AND for ParentChildRel
         /// </summary>
         public Test5()
         {
-            timer.SetTitle("Test 5");
+            Timer.SetTitle("Test 5");
         }
 
-        public override void Run(int count = 10_000)
+        protected override void Add(TestContext ctx, Parent parent, int count)
         {
-            var parentId = Create();
-            timer.Start();
-
-
-            using (var ctx = new TestContext())
+            var childBatch = new ChildBatch
             {
-                var parent = LoadParent(ctx, parentId);
+                DateTime = DateTime.Now,
+                Children = new List<Child>()
+            };
+            ctx.SessionSet.Add(childBatch);
+            ctx.SaveChanges();
 
-                Add(ctx, parent, count);
+            for (var i = 0; i < count; i++)
+            {
+                var child = new Child
+                {
+                    Name = Guid.NewGuid().ToString("N"),
+                    BatchId = childBatch.Id
+                };
+                childBatch.Children.Add(child);
             }
-            var timertext = timer.Stop();
-            Debug.WriteLine(timertext);
-            FileLogger.Info(timertext);
-        }
+            Timer.CheckPoint($"Added {count}");
 
+            ctx.SaveChanges();
+            Timer.CheckPoint("Saved");
+
+            using (var ctx2 = new Test2Context())
+            {
+                var relBatch = new ParentChildBatch
+                {
+                    DateTime = DateTime.Now,
+                    ParentChildSimpleRels = new List<ParentChildSimpleRel>()
+                };
+                ctx2.ParentChildBatchSet.Add(relBatch);
+
+                foreach (var child in childBatch.Children)
+                {
+                    //ctx2.ParentChildRel2Set.Add(new ParentChildSimpleRel
+                    relBatch.ParentChildSimpleRels.Add(new ParentChildSimpleRel
+                    {
+                        ParentId = parent.Id,
+                        ChildId = child.Id
+                    });
+                }
+                Timer.CheckPoint($"Added rel {count}");
+
+                ctx2.SaveChanges();
+                Timer.CheckPoint("Saved rel");
+            }
+        }
     }
 }

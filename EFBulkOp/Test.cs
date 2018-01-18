@@ -8,30 +8,33 @@ namespace EFBulkOp
 {
     internal interface ITest
     {
-        void Run(int count);
+        void Run(int count, int iter, bool loadAfter);
     }
 
     public abstract class Test : ITest
     {
-        protected ExecutionTimer timer = new ExecutionTimer("test");
+        protected ExecutionTimer Timer = new ExecutionTimer("test");
 
-        public virtual void Run(int count = 10_000)
+        public virtual void Run(int count = 10_000, int iter = 1, bool loadAfter = false)
         {
             var parentId = Create();
-            timer.Start();
+            Timer.Start();
 
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < iter; i++)
             {
                 using (var ctx = new TestContext())
                 {
                     LoadAndAddChildren(ctx, parentId, count);
                 }
             }
-            using (var ctx = new TestContext())
+            if (loadAfter)
             {
-                LoadParent(ctx, parentId);
+                using (var ctx = new TestContext())
+                {
+                    LoadParent(ctx, parentId);
+                }
             }
-            var timertext = timer.Stop();
+            var timertext = Timer.Stop();
             Debug.WriteLine(timertext);
             FileLogger.Info(timertext);
         }
@@ -62,12 +65,11 @@ namespace EFBulkOp
                 .Include(p => p.ChildrenRel.Select(rel => rel.Child))
                 .FirstOrDefault(p => p.Id == parentId);
 
-            timer.CheckPoint("\r\nLoaded", $"{parent?.ChildrenRel.Count} children");
+            Timer.CheckPoint("\r\nLoaded", $"{parent?.ChildrenRel.Count} children");
 
             return parent;
         }
 
         protected abstract void Add(TestContext ctx, Parent parent, int count);
-
     }
 }
